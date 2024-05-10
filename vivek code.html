@@ -1,0 +1,97 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+  table {
+    border-collapse: collapse;
+    width: 70%;
+    margin: 0 auto;
+  }
+
+  th, td {
+    border: 2px solid #161515;
+    padding: 8px;
+    text-align: left;
+  }
+
+  th {
+    background-color: #f2f7f3;
+    color: rgb(60, 59, 59);
+  }
+
+  tr:nth-child(even) {
+    background-color: #847784;
+  }
+
+  tr:hover {
+    background-color: #8d6492;
+  }
+  h2 {
+    text-align: center;
+    color:#8d6492;
+  }
+
+  input[type="button"] {
+    display: block;
+    margin:0 auto;
+  }
+</style>
+</head>
+<h2>Vicky's Table</h2>
+<body>
+<table id="vTabe" border="1"> 
+  <tr>
+    <th>Row1 Col1</th> 
+    <th>Row1 Col2</th>
+  </tr> 
+  <tr>
+    <td>Row2 Col1</td> 
+    <td>Row2 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row3 Col1</td> 
+    <td>Row3 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row4 Col1</td> 
+    <td>Row4 Col2</td>
+  </tr> 
+    <tr>
+    <td>Row5 Col1</td> 
+    <td>Row5 Col2</td>
+  </tr> 
+</table>
+  <br>
+<input type="button" onclick="insertRowBottom()" value="Insert row">  
+<input type="button" onclick="deleteRowTop()" value="delete row">  
+<br>
+<label id="message"></label>
+
+<script>
+var v = 5;
+
+function insertRowBottom(){
+  var tbl = document.getElementById("vTabe");
+  v++;
+  var rw = tbl.insertRow(-1);
+  var tablecell1 = rw.insertCell(0);
+  var tablecell2 = rw.insertCell(1);
+  tablecell1.innerHTML = "Row" + v + " Col1";
+  tablecell2.innerHTML = "Row" + v + " Col2";
+  document.getElementById("message").innerText = "";
+}
+function deleteRowTop() {
+  var table = document.getElementById("vTabe");
+  var rowCount = table.rows.length;
+
+  if (rowCount > 0) {
+    table.deleteRow(0);
+    document.getElementById("message").innerText = "";
+  } else {
+    document.getElementById("message").innerText = "Message: No more rows to delete";
+  }
+}
+
+</script>
+</body>
+</html>
